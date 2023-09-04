@@ -6,11 +6,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .square {
     aspect-ratio: 1/1;
-    width: 6%;
     flex-shrink: 0;
     text-align: center;
     outline: 1px solid black;
