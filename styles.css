@@ -5,12 +5,29 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 80vb;
+    width: 70vb;
     margin: auto;
 }
 
 .square {
     aspect-ratio: 1/1;
     flex-shrink: 0;
-    outline: 1px solid lightgray;
+    outline: 1px solid darkgrey;
+    background-color: whitesmoke;
+}
+
+button {
+    margin: 10px 10px 30px 10px;
+    padding: 10px;
+    color: white;
+    background-color: dodgerblue;
+    border-style: outset;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px darkslategray;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+body {
+    background-color: steelblue;
 }
