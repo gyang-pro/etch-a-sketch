@@ -17,16 +17,18 @@ function createGrid(gridNumber) {
         gridNumber = prompt('Please type in a number greater than 1 and less than 100', '');
     }
 
-    for(let i = 1; i <= gridNumber; i++) {
-        for(let j = 1; j <= gridNumber; j++) {
+    /* create a gridNumber X gridNumber grid of square divs */
+    for(let i = 0; i < gridNumber; i++) {
+        for(let j = 0; j < gridNumber; j++) {
             const square = document.createElement('div');
             square.classList.add(`square`);
+            square.setAttribute('id',`square${i}${j}`);
             square.style.width = `${1/gridNumber * 100}%`;
             container.appendChild(square);
         }
     }
 
-    draw();
+    colorSquare(gridNumber);
 }
 
 function removeGrid() {
@@ -35,11 +37,21 @@ function removeGrid() {
     }
 }
 
-function draw() {
-    const hover = document.querySelectorAll('.square');
-    hover.forEach(gridSquare => {
-        gridSquare.addEventListener('mouseover', () => {
-            gridSquare.style.backgroundColor = 'blue';
-        });
-    });
+function colorSquare(gridNumber) {
+    for(let i = 0; i < gridNumber; i++) {
+        for(let j = 0; j < gridNumber; j++) {
+            const gridSquare = document.getElementById(`square${i}${j}`);
+            let counter = 0;
+            gridSquare.addEventListener('mouseover', () => {
+                if(counter < 10) {
+                    counter++;
+                    increaseOpacity(gridSquare, counter);
+                }
+            })
+        }
+    }
+}
+
+function increaseOpacity(gridSquare, counter) {
+    gridSquare.style.backgroundColor = `rgb(43,84,126, ${0.10 * counter})`; /*bluejay color*/
 }
